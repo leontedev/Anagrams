@@ -3,3 +3,4 @@ Project 5 of 100DaysOfSwift Challenge from HackingWithSwift.com
 A game that deals with anagrams.
 
 ** Day 27
+Introduction to capture lists. Basic set up of the game. Reading the list of words from the Bundle. Set up of an UIAlertController with a TextField and a Submit which contains a closure. 
