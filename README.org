@@ -1,0 +1,5 @@
+* Word Game - Anagrams
+Project 5 of 100DaysOfSwift Challenge from HackingWithSwift.com
+A game that deals with anagrams.
+
+** Day 27
