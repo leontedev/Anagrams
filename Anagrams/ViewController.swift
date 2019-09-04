@@ -67,8 +67,69 @@ class ViewController: UITableViewController {
     }
     
     func submit(_ answer: String) {
+        let lowerAnswer = answer.lowercased()
         
+        let errorTitle: String
+        let errorMessage: String
+        
+        if isPossible(word: lowerAnswer) {
+            if isOriginal(word: lowerAnswer) {
+                if isReal(word: lowerAnswer) {
+                    usedWords.insert(answer, at: 0)
+                    
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                    
+                    return
+                } else {
+                    errorTitle = "Word not recognized"
+                    errorMessage = "You can't just make them up, you know?"
+                }
+            } else {
+                errorTitle = "Word already used"
+                errorMessage = "Try to be more original, will you?"
+            }
+        } else {
+            errorTitle = "Word not possible"
+            errorMessage = "You can't spell that word from from \(title!.lowercased())"
+        }
+        
+        let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Sorry", style: .default))
+        present(ac, animated: true )
     }
+    
+    func isPossible(word: String) -> Bool {
+        guard var tempWord = title?.lowercased() else { return false }
+        
+        for letter in word {
+            if let index = tempWord.firstIndex(of: letter) {
+                tempWord.remove(at: index)
+            } else {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func isOriginal(word: String) -> Bool {
+        return !usedWords.contains(word)
+    }
+    
+    func isReal(word: String) -> Bool {
+        // to check if the word is real we can use UITextChecker() to check for miss-spellings. If no misspelling is found, it means the word is real.
+        let checker = UITextChecker()
+        
+        // When using UIKit/SpriteKit or other Apple APIs methods use .utf16.count instead of .count
+        let range = NSRange(location: 0, length: word.utf16.count)
+        
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        
+        
+        return misspelledRange.location == NSNotFound
+    }
+    
 }
 
 

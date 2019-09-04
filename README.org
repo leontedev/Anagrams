@@ -4,3 +4,10 @@ A game that deals with anagrams.
 
 ** Day 27
 Introduction to capture lists. Basic set up of the game. Reading the list of words from the Bundle. Set up of an UIAlertController with a TextField and a Submit which contains a closure. 
+
+** Day 28
+UITextChecker to check word spelling. How to work with strings (utf16) when using Apple libraries (UIKit, SpriteKit, etc). 
+
+<p align="center">
+    <img src="Screen Shot 2019-09-04 at 4.56.50 PM" />
+</p>
