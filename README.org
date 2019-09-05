@@ -9,3 +9,14 @@ Introduction to capture lists. Basic set up of the game. Reading the list of wor
 UITextChecker to check word spelling. How to work with strings (utf16) when using Apple libraries (UIKit, SpriteKit, etc). 
 
 [[Screen Shot 2019-09-04 at 4.56.50 PM.png]]
+
+** Day 29 - Challenge
+1. Disallow answers that are shorter than three letters or are just our start word. For the three-letter check, the easiest thing to do is put a check into isReal() that returns false if the word length is under three letters. For the second part, just compare the start word against their input word and return false if they are the same.
+2. Refactor all the else statements we just added so that they call a new method called showErrorMessage(). This should accept an error message and a title, and do all the UIAlertController work from there.
+3. Add a left bar button item that calls startGame(), so users can restart with a new word whenever they want to.
+
+Bonus: Once you’ve done those three, there’s a really subtle bug in our game and I’d like you to try finding and fixing it.
+
+To trigger the bug, look for a three-letter word in your starting word, and enter it with an uppercase letter. Once it appears in the table, try entering it again all lowercase – you’ll see it gets entered. Can you figure out what causes this and how to fix it?
+
+[[Screen Shot 2019-09-05 at 11.17.27 AM.png]]
