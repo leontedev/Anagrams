@@ -84,27 +84,26 @@ class ViewController: UITableViewController {
                             
                             return
                         } else {
-                            errorTitle = "Word not recognized"
-                            errorMessage = "You can't just make them up, you know?"
+                            showErrorMessage(title: "Word not recognized", message: "You can't just make them up, you know?")
                         }
                     } else {
-                        errorTitle = "Word already used"
-                        errorMessage = "Try to be more original, will you?"
+                        showErrorMessage(title: "Word already used", message: "Try to be more original, will you?")
                     }
                 } else {
-                    errorTitle = "Word not possible"
-                    errorMessage = "You can't spell that word from from \(title!.lowercased())"
+                    showErrorMessage(title: "Word not possible", message: "You can't spell that word from from \(title!.lowercased())")
                 }
             } else {
-                errorTitle = "That's the starting word"
-                errorMessage = "Try, harder, to be more original."
+                showErrorMessage(title: "That's the starting word", message: "Try, harder, to be more original.")
             }
         } else {
-            errorTitle = "Word too short"
-            errorMessage = "The word needs to be at least three characters long."
+            showErrorMessage(title: "Word too short", message: "The word needs to be at least three characters long.")
         }
         
         
+        
+    }
+    
+    func showErrorMessage(title errorTitle: String, message errorMessage: String) {
         let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Sorry", style: .default))
         present(ac, animated: true )
