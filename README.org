@@ -20,3 +20,5 @@ Bonus: Once you’ve done those three, there’s a really subtle bug in our game
 To trigger the bug, look for a three-letter word in your starting word, and enter it with an uppercase letter. Once it appears in the table, try entering it again all lowercase – you’ll see it gets entered. Can you figure out what causes this and how to fix it?
 
 [[Screen Shot 2019-09-05 at 11.17.27 AM.png]]
+** Day 49 - Challenge #3
+Modify project 5 so that it saves the current word and all the player’s entries to UserDefaults, then loads them back when the app launches.
